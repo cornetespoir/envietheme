@@ -12,7 +12,7 @@ by egg.design //
     but don't use as a base, remove the credit, or claim as your own
     
 Credits
-    + icon fonts from font awesome and suiomi.com
+    + icon fonts from suiomi.com
  
     
 Version 1.1
@@ -40,7 +40,7 @@ Version 1.1
 <meta name="color:links" content="#664466" />
 <meta name="color:link hover" content="#CCC" />
 <meta name="color:sidebar" content="#fff" />
-<meta name="color:accent" content="#231E38" />
+<meta name="color:accent" content="#FF6F61" />
 <meta name="color:border" content="#ddd" />
 
 <meta name="color:selection" content="#fff" />
@@ -609,6 +609,24 @@ width:100%;
    
 }
 
+.linkp {
+    background:{color:accent};
+    padding:20px;
+    width:100%;
+    border-radius:4px;
+    font-size:1.12em;
+}
+.linkp .th {
+    border-radius:4px;
+    padding:10px;
+    background:{color:posts};
+    color:{color:accent};
+    transform:translateX(-10px);
+}
+.linkp a {
+    color:{color:posts};
+}
+
 .im,.phot {
     position:relative;
     transition:.6s;
@@ -1097,9 +1115,10 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 
 {block:Link}
      <div class="linkp">
-     <a href="{URL}" class="linkp" {Target}>{Name}</a></div>
+     <a href="{URL}" class="linkp" {Target}> <i class="th th-link"></i> {Name}</a></div>
      {block:Description}
     <div class="caption">
+    {block:Excerpt}{excerpt} {/block:Excerpt}
     {Description}</div>
     {/block:Description}
 {/block:Link}
