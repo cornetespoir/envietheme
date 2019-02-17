@@ -1,0 +1,432 @@
+<!--
+
+// [Theme]
+   
+   Envie
+ 
+by egg.design //
+ 
+    + basic html and css knowledge is required to customize this theme
+    + this code belongs to eggdesigns.co. While it is free to use, it is not      free to sell or otherwise redistribute
+    + feel free to edit and custom the theme to your liking, 
+    but don't use as a base, remove the credit, or claim as your own
+    
+Credits
+    + icon font from font awesome
+ 
+    
+Version 1.0
+-->
+<html>
+<head>
+<link href="https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css" rel="stylesheet">
+<link href="https://raw.githubusercontent.com/cornetespoir/envietheme/master/style.css?token=Ahv3tokJxSxprg-Y_2B_7ulCtvqzQb1Pks5cabyEwA%3D%3D" rel="stylesheet">
+<title>{Title}</title>
+<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
+<!-- images -->
+
+<!-- colors  -->
+<meta name="color:accent" content="#FF6F61" />
+<meta name="color:background" content="#FFFFFF" />
+<meta name="color:posts" content="#fff" />
+<meta name="color:text" content="#222" />
+<meta name="color:links" content="#664466" />
+<meta name="color:link hover" content="#CCC" />
+<meta name="color:sidebar" content="#fff" />
+<meta name="color:accent" content="#231E38" />
+<meta name="color:border" content="#ddd" />
+
+<meta name="color:selection" content="#fff" />
+<meta name="color:selection bg" content="#7b7b7b" />
+
+<!-- text options -->
+<meta name="text:Google font" content="Poppins" />
+<meta name="text:Google Analytics" content="" />
+<meta name="text:disqus shortname" content="" />
+
+<meta name="if:disqus" content="" />
+
+{text:google anayltics}
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <script>
+      $(document).ready(function(){
+        $('#more').click(function(){
+           $('.menu').toggleClass('open'); 
+        });
+    $('h1').each(function(){
+
+    var text = $(this).text().split(' ');
+    if(text.length < 2)
+        return;
+
+    text[0] = '<span class="first-word">'+text[0]+'</span>';
+
+    $(this).html( text.join(' ') );
+});
+$(document).on('scroll', function() {
+    if($(this).scrollTop()>=$('header').position().top){
+        $('aside').addClass('slide');
+    }
+    
+    else {
+         $('aside').removeClass('slide');
+    }
+})
+
+   });
+  </script>
+  
+
+<link href="//dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family={text:Google Font}:400,700" rel="stylesheet">
+
+<style type="text/css">
+
+{CustomCSS}
+</style>
+</head>
+
+
+<!-- HTML -->
+
+<body>
+<aside>
+</aside>
+<header>
+<div class="header">
+    <div class="im">
+  
+        <img src="https://www.pantone.com/images/pages/21429/pantone-color-of-the-year-2019-living-coral-banner-mobile.jpg">
+    </div>
+   <div class="caption">
+   <h1>{Title}</h1>
+     <div class="description"> 
+     <div class="desc">{Description}
+     <div class="menu">
+         {block:HasPages}
+         {block:Pages}
+         <a href="{URL}">{Label}</a>
+         <span class="th th-circle"></span>
+         {/block:Pages}
+         {/block:HasPages}
+     </div></div>
+    <div class="links">
+        <a href="/">{lang:Home}</a>
+        {block:askenabled}
+        <a hef="/ask">Ask</a>
+        {/block:askenabled}
+        {block:submissionsenabled}
+        <a href="/submit">Submit</a>
+        {/block:Submissionsenabled}
+        <a href="/archive">{lang:Archive}</a>
+        {block:HasPages}<a id="more">More</a>{/block:HasPages}
+    </div>  
+     </div> 
+     
+   </div>
+    </div>
+</header>
+<main>
+{block:daypage}
+<div class="posts caption" style="z-index:999; background:white; padding:40px">
+   {lang:Viewing everything posted on Month DayOfMonth Year}
+</div>
+{/block:daypage}
+
+{block:searchpage}
+<div class="posts caption" style="z-index:999; background:white; padding:40px;">
+  {lang:Showing SearchResultCount results for SearchQuery}
+</div>
+{/block:searchpage}
+{block:tagpage}
+<div class="posts caption" style="z-index:999; background:white; padding:40px">
+  {lang:Showing TagResultCount posts tagged Tag}
+</div>
+{/block:tagpage}
+    {block:Posts}<div class="posts {block:photo} photos {/block:photo} {block:photoset} photos {/block:photoset} ">
+ 
+ 
+ 
+<!-- {block:NoRebloggedFrom}
+{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+{/block:NoRebloggedFrom} --> 
+{block:ContentSource}
+<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}  
+
+
+{block:Text}
+
+<div class="caption" style="width:100%; padding:20px 40px;"> 
+{block:Title}
+   <h1>{Title}</h1>
+{/block:Title}
+{block:notreblog}
+<figcaption>
+        {Body}
+    </figcaption>
+{/block:NotReblog}
+ 
+{block:RebloggedFrom}
+<div class="reblog-list">
+    {block:Reblogs}
+        <div class="{block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+            <div class="reblog-header">
+ 
+                {block:IsActive}
+                <a class="{block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                <span class="inactive {block:isNotOriginalEntry} sub-reblog{/block:isNotOriginalEntry}">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </span>
+                {/block:IsDeactivated}
+ 
+                {block:IsActive}
+                   <a target="_blank" href="{Permalink}" class="user">{Username}</a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                    <span class="inactive deactivated">{Username}</span>
+                {/block:IsDeactivated}
+ 
+            </div>
+            <div class="reblog-content">
+                {Body}
+            </div>
+        </div>
+    {/block:Reblogs}
+</div>
+{/block:RebloggedFrom}
+               </div>
+               
+{/block:Text}
+
+{block:Photo}
+<div class="im">
+  <a href="{permalink}" class="eye"><span class="th th-eyelash"></span></a>
+    <a href="{permalink}"><img src="{PhotoURL-HighRes}" class="photopost" alt="{PhotoAlt}"/></a> </div>
+{/block:Photo}
+
+{block:Panorama}
+    {LinkOpenTag}
+    <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+    {LinkCloseTag}
+{/block:Panorama}
+
+{block:Photoset}
+   <div class="phot">
+     <a href="{permalink}" class="eye"><span class="th th-eyelash"></span></a>
+  <div class="photoset-grid" photoset-layout="{PhotosetLayout}">{block:Photos}<div><img src="{PhotoURL-HighRes}" /></div>{/block:Photos}</div></div> 
+ 
+{/block:Photoset}
+
+{block:Quote}
+
+    <blockquote class="quote">
+    "{Quote}"
+   
+    {block:Source}
+    <div class="source">{Source}</div>
+    {/block:Source}
+     </blockquote>
+{/block:Quote}
+
+{block:Link}
+     <div class="linkp">
+     <a href="{URL}" class="linkp" {Target}>{Name}</a></div>
+     {block:Description}
+    <div class="caption">
+    {Description}</div>
+    {/block:Description}
+{/block:Link}
+
+{block:Chat}
+    {block:Title}
+    <a href="{Permalink}" style="background:transparent; padding:0;">
+    <h2>{title}</h2></a>
+    {/block:Title}
+    {block:Lines}
+    <div class="chat">
+    {block:Label}<b>{Label}</b>{/block:Label}
+    {Line}<br/></div>
+    {/block:Lines}
+{/block:Chat}
+
+{block:Video}
+    <div class="video">{Video-400}</div>
+{/block:Video}  
+
+{block:Audio}
+
+               
+                     <div id="audiopost">
+<div class="playerbox">
+   <div id="albumart">{block:AlbumArt}<img src="{AlbumArtURL}">{/block:AlbumArt}</div>
+
+<center><div class="playercon"><div class="player">{AudioPlayerWhite}</div></div></center></div>
+<div class="infobox">
+   <div class="trackname"> {block:TrackName}
+Track: {TrackName}
+{/block:TrackName}  </div>
+ 
+ 
+<div class="artist">
+{block:Artist}
+
+Artist: {Artist}
+{/block:Artist} </div>
+ 
+    <div class="album">
+        {block:Album}
+ Album: {Album}
+{/block:Album}
+    </div>
+ 
+</div></div> 
+{/block:Audio} 
+                
+{block:Answer}
+<div class="ask">
+    <div class="askerportrait">
+    <img src="{AskerPortraitURL-40}" alt="asker portrait"></div>   </div>
+    <div class="speechbubble"> {Asker} asked</a>: 
+    {Question}</div> <div class="caption">{answer}</div>
+        
+ 
+{/block:Answer}
+  <div class="caption"> 
+  
+  {block:Date} <div class="date">
+      <a href="/day/{year}/{monthnumber}/{dayofmonthwithzero}"><span class="first-word">{Month}</span> {Dayofmonth}, {Year}</a> <span class="th th-circle"></span><a href="{Permalink}">{NoteCountwithlabel}</a> 
+     {block:HasTags}<div class="tags">{block:tags}<a href="{tagURL}">#{tag}</a> {/block:tags}</div>{/block:HasTags}
+  </div>
+  {/block:Date}
+  
+  {block:Caption}
+                           {block:NotReblog}
+    <figcaption>
+        {Caption}
+    </figcaption>
+{/block:NotReblog}
+ 
+{block:RebloggedFrom}
+<div class="reblog-list">
+    {block:Reblogs}
+        <div class="{block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+            <div class="reblog-header">
+ 
+                {block:IsActive}
+                <a class="{block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                <span class="inactive {block:isNotOriginalEntry} sub-reblog{/block:isNotOriginalEntry}">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </span>
+                {/block:IsDeactivated}
+ 
+                {block:IsActive}
+                   <a target="_blank" href="{Permalink}" class="user">{Username}</a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                    <span class="inactive deactivated">{Username}</span>
+                {/block:IsDeactivated}
+ 
+            </div>
+            <div class="reblog-content">
+                {Body}
+            </div>
+        </div>
+    {/block:Reblogs}
+</div>
+{/block:RebloggedFrom}
+                        {/block:Caption}
+      </div>                  
+
+
+ </div>
+ <!--posts end-->{/block:Posts}
+ 
+ {block:permalinkpage}
+ {block:ifdisqus}
+<div id="disqus_thread"><script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '{text:disqus shortname}'; // Required - Enter shortname in Tumblr Theme Options
+    var disqus_url = '{Permalink}'; 
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a></div>
+{/block:ifdisqus}
+{/block:permalinkpage}
+
+{block:PostNotes}
+{PostNotes-64}{/block:PostNotes}         
+
+<div id="pagination">
+{block:Pagination}{block:PreviousPage}
+    <span> <a href="{PreviousPage}">{lang:Previous}</a></span> 
+    {/block:PreviousPage}{block:JumpPagination length="4"}{block:CurrentPage}
+    <span class="current_page">{PageNumber}</span>
+    {/block:CurrentPage}
+    {block:JumpPage}
+    <a class="jump_page" href="{URL}">{PageNumber}</a>
+    {/block:JumpPage}{/block:JumpPagination}
+    
+    {block:NextPage}
+    <span> <a href="{NextPage}">{lang:Next}</a></span> 
+    {/block:NextPage}{/block:Pagination}
+            
+    {block:PermalinkPagination} 
+    {block:PreviousPost}
+        <a href="{PreviousPost}">{lang:Previous Post}</a>
+    {/block:PreviousPost}
+     
+    {block:NextPost}
+        <a href="{NextPost}" style="margin-left:10px">{lang:Next Post}</a>
+    {/block:NextPost} 
+{/block:PermalinkPagination}
+
+
+        </div>
+</main>
+<footer>
+    <h1>{Title}</h1>
+        <div id="search" title="search">
+        <form action="/search" method="get" id="search-form">
+        <input type="hidden" name="t" value="{Name}" />
+        <input type="text" name="q" class="query" value="{SearchQuery}"  placeholder="search"/>
+        <div class="clear"></div>
+</form></div>
+<div class="copyright">
+    {CopyRightYears} {Name}
+</div>
+</footer>
+
+<a id="egg" href="http://eggdesigns.co"></a>
+</body>
+</html>
