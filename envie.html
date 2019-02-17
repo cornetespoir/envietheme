@@ -12,10 +12,10 @@ by egg.design //
     but don't use as a base, remove the credit, or claim as your own
     
 Credits
-    + icon font from font awesome
+    + icon fonts from font awesome and suiomi.com
  
     
-Version 1.0
+Version 1.1
 -->
 <html>
 <head>
@@ -470,6 +470,16 @@ margin-left:10px;
 
 .chat {
     padding:10px;
+}
+
+.chat li {
+    list-style:none;
+    padding:10px;
+}
+
+.chat li:nth-of-type(odd) {
+
+    color:{color:accent};
 }
 
 /* Audio Posts */
@@ -1007,7 +1017,7 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 
 {block:Text}
 
-<div class="caption" style="width:100%; padding:20px 40px;"> 
+<div class="caption" style="width:100%; padding:20px 40px; background:{color:posts}"> 
 {block:Title}
    <h1>{Title}</h1>
 {/block:Title}
@@ -1099,11 +1109,13 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
     <a href="{Permalink}" style="background:transparent; padding:0;">
     <h2>{title}</h2></a>
     {/block:Title}
+        <div class="chat">
     {block:Lines}
-    <div class="chat">
+
+    <li>
     {block:Label}<b>{Label}</b>{/block:Label}
-    {Line}<br/></div>
-    {/block:Lines}
+    {Line}<br></li>
+    {/block:Lines}</div>
 {/block:Chat}
 
 {block:Video}
